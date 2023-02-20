@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-center">
+<form [formGroup]="formregister" (ngSubmit)="submit()">
+    <label>Username</label>
+    <input type="text" class="form-control" formControlName="username"><br>
+    <label>Password</label>
+    <input type="text" class="form-control" formControlName="password"><br>
+    <label>Name</label>
+    <input type="text" class="form-control" formControlName="name"><br>
+    <label>Last Name</label>
+    <input type="text" class="form-control" formControlName="lastname"><br>
+    <label>Mail</label>
+    <input type="text" class="form-control" formControlName="mail"><br>
+    <label>Phone number</label>
+    <input type="text" class="form-control" formControlName="number"><br>
+    <label>Age</label>
+    <input type="text" class="form-control" formControlName="age"><br>
+    <br>
+    <button type="submit" class="btn" [disabled]="formregister.invalid">Register</button>
+</form>
+</div>

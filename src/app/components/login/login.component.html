@@ -1,0 +1,11 @@
+<div class="d-flex justify-content-center">
+<form [formGroup]="formlogin" (ngSubmit)="submit()">
+    <p>Login</p><br>
+    <label>Username</label><br>
+    <input type="text"  class="form-control" formControlName="username"><br>
+    <label>Password</label><br>
+    <input type="text"  class="form-control" formControlName="password"><br>
+    <br>
+    <button type="submit" class="btn" [disabled]="formlogin.invalid">Login</button>
+</form>
+</div>
