@@ -12,12 +12,12 @@ export class TablaenteraserviceService {
   constructor(private _http:HttpClient) { }
 
   gettable():Observable<Animal[]>{
-    // return this._http.get<Animal[]>('http://localhost:3000/tabla').map(data => _.values(data))
-    return this._http.get<Animal[]>(this.url).pipe(
-      map(result=>{return result}))
 
-    // .do(console.log);
+    return   this._http.get<Animal[]>(this.url+'/tabla').pipe(
+      map(result => {
+          return result;
+      })
+    )
   }
 
-  // this.http.get<Animal[]>(this.url).pipe(map(result=>result)).subscribe(result => console.log('result: ',result))
 }
