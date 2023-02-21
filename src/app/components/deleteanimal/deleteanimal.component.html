@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-center">
+    <form [formGroup]="formdeleteanimal" (ngSubmit)="submit()">
+Que animal quieres borrar: 
+<select formControlName="borra" name="borrar" id="">
+    <option *ngFor="let a of arrayanimals" value="{{a}}" selected>{{a}}</option>
+</select>
+<button type="submit" class="btn" [disabled]="formdeleteanimal.invalid">Delete</button>
+</form>
+</div>

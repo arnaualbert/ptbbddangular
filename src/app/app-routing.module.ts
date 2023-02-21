@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DeleteanimalComponent } from './components/deleteanimal/deleteanimal.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MoreanimalsComponent } from './components/moreanimals/moreanimals.component';
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path: 'newanimal',
     component:MoreanimalsComponent
+  },
+  {
+    path: 'deleteanimal',
+    component:DeleteanimalComponent
   }
 ];
 

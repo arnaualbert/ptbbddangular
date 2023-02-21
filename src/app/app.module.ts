@@ -15,6 +15,7 @@ import { MotivacioComponent } from './components/motivacio/motivacio.component';
 import { PresentacionComponent } from './components/presentacion/presentacion.component';
 import { TablaComponent } from './components/tabla/tabla.component';
 import { MoreanimalsComponent } from './components/moreanimals/moreanimals.component';
+import { DeleteanimalComponent } from './components/deleteanimal/deleteanimal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MoreanimalsComponent } from './components/moreanimals/moreanimals.compo
     MotivacioComponent,
     PresentacionComponent,
     TablaComponent,
-    MoreanimalsComponent
+    MoreanimalsComponent,
+    DeleteanimalComponent
   ],
   imports: [
     BrowserModule,
