@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center">
+    <form [formGroup]="formaddanimal" (ngSubmit)="submit()">
+        <p>ADD ANIMAL</p><br>
+        <label>Nombre</label><br>
+        <input type="text" class="form-control" formControlName="nombre"><br>
+        <label>Especie</label><br>
+        <input type="text" class="form-control" formControlName="especie"><br>
+        <br>
+        <label>Cantidad</label><br>
+        <input type="number" class="form-control" formControlName="cantidad"><br>
+        <br>
+        <label>Familia</label><br>
+        <input type="text" class="form-control" formControlName="familia"><br>
+        <br>
+        <label>Alimentacion</label><br>
+        <input type="text" class="form-control" formControlName="alimentacion"><br>
+        <br>
+        <label>Habitat</label><br>
+        <input type="text" class="form-control" formControlName="habitat"><br>
+        <br>
+        <button type="submit" class="btn" [disabled]="formaddanimal.invalid">Login</button>
+    </form>
+</div>

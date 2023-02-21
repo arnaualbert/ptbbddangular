@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { MoreanimalsComponent } from './components/moreanimals/moreanimals.component';
 import { MotivacioComponent } from './components/motivacio/motivacio.component';
 import { PresentacionComponent } from './components/presentacion/presentacion.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'tabla',
     component:TablaComponent
+  },
+  {
+    path: 'newanimal',
+    component:MoreanimalsComponent
   }
 ];
 
