@@ -19,7 +19,7 @@ ngOnInit() {
    // console.log(animal)
    let name = animal.nombre
    this.arrayanimals.push(name)
-  }
+    }
     // this.arrayanimals = result
   })
 

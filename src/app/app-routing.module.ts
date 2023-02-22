@@ -8,6 +8,7 @@ import { MotivacioComponent } from './components/motivacio/motivacio.component';
 import { PresentacionComponent } from './components/presentacion/presentacion.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TablaComponent } from './components/tabla/tabla.component';
+import { UpdateanimalComponent } from './components/updateanimal/updateanimal.component';
 import { NoentryGuard } from './guards/noentry.guard';
 
 const routes: Routes = [
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path: 'deleteanimal',
     component:DeleteanimalComponent
+  },
+  {
+    path: 'updateanimal',
+    component:UpdateanimalComponent
   }
 ];
 
