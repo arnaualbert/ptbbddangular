@@ -65,11 +65,13 @@ export class UpdateanimalComponent {
 
 
   submitupdateanimal(){
-    this.updateanimal.updateanimal(this.animaltomodifi.especie,this.animaltomodifi.cantidad,this.animaltomodifi.familia,this.animaltomodifi.alimentacion,this.animaltomodifi.habitat,this.animaltomodifi.nombre).subscribe(
+    console.log('click')
+    this.updateanimal.updateanimal(this.formaseeanimal.value.especie,this.formaseeanimal.value.cantidad,this.formaseeanimal.value.familia,this.formaseeanimal.value.alimentacion,this.formaseeanimal.value.habitat,this.animaltomodifi.nombre).subscribe(
       result => {
         if(result==null){
           console.log('n0oooo')
         }else{
+          console.log(result)
           console.log('update')
         }
       }

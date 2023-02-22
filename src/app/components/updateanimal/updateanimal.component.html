@@ -23,7 +23,7 @@
                 <label>Especie</label>
             </div>
             <div class="col">
-                <input type="text" class="form-control" formControlName="especie" value="{{animaltomodifi.especie}}">
+                <input type="text" class="form-control" formControlName="especie" [(ngModel)]="animaltomodifi.especie" value="{{animaltomodifi.especie}}">
             </div>
             <div class="col">
                 <label>Cantidad</label>
