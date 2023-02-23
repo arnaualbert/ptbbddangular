@@ -31,7 +31,7 @@ export class LoginserviceService {
     //let u = new User(username, password,"","","","",0,0);
     //console.log(u);
 
-    return this._http.post<User>(this.url+'/login',{"user":username,"password":password},{responseType: "json"}).pipe(
+    return this._http.post<User>(this.url+'/login',{"username":username,"password":password},{responseType: "json"}).pipe(
       map(res=>{
         console.log(JSON.stringify(res));
         if(res!=null){
