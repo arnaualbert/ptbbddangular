@@ -29,26 +29,26 @@
                 <label>Cantidad</label>
             </div>
             <div class="col">
-                <input type="text" class="form-control" formControlName="cantidad" value="{{animaltomodifi.cantidad}}">
+                <input type="text" class="form-control" formControlName="cantidad" [(ngModel)]="animaltomodifi.cantidad" value="{{animaltomodifi.cantidad}}">
             </div>
             <div class="col">
                 <label>Familia</label>
             </div>
             <div class="col">
-                <input type="text" class="form-control" formControlName="familia" value="{{animaltomodifi.familia}}">
+                <input type="text" class="form-control" formControlName="familia" [(ngModel)]="animaltomodifi.familia" value="{{animaltomodifi.familia}}">
             </div>
             <div class="col">
                 <label>Alimentacion</label>
             </div>
             <div class="col">
                 <input type="text" class="form-control" formControlName="alimentacion"
-                    value="{{animaltomodifi.alimentacion}}">
+                [(ngModel)]="animaltomodifi.alimentacion" value="{{animaltomodifi.alimentacion}}">
             </div>
             <div class="col">
                 <label>Habitat</label>
             </div>
             <div class="col">
-                <input type="text" class="form-control" formControlName="habitat" value="{{animaltomodifi.habitat}}">
+                <input type="text" class="form-control" formControlName="habitat" [(ngModel)]="animaltomodifi.habitat" value="{{animaltomodifi.habitat}}">
             </div>
         </div>
         <button type="submit" class="btn">SEND</button>
