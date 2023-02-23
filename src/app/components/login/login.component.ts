@@ -44,10 +44,21 @@ export class LoginComponent {
           console.log('no'); 
         }else{
           this.user=JSON.parse(JSON.stringify(result))
+          this.cookieService.set('USER',result.username + " " + result.role)
           this.route.navigate(['/home']);
           console.log('yes'); 
         }
       }
     )
+  }
+
+  findcookie(){
+    let cookie = this.cookieService.get('USER')
+    if(cookie != ""){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 }

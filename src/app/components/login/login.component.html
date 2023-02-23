@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center">
+<div *ngIf="!findcookie()" class="d-flex justify-content-center">
 <form [formGroup]="formlogin" (ngSubmit)="submit()">
     <p>Login</p><br>
     <label>Username</label><br>

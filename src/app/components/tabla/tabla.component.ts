@@ -12,6 +12,10 @@ export class TablaComponent {
 
   arranimals:any; // <-
 
+  //new
+  animalfiltrado!: Animal[];
+  total!:number;
+  cp!:number;
 
 constructor(private tabla: TablaenteraserviceService) { }
 ngOnInit() {
@@ -22,5 +26,9 @@ ngOnInit() {
     console.log(animal)}
     this.arranimals = result
   })
+  //new
+  this.animalfiltrado = this.arranimals
+  this.total = 10;
+  this.cp=1;
 }
 }
