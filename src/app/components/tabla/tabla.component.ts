@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Animal } from 'src/app/model/Animal';
 import { TablaenteraserviceService } from 'src/app/services/tablaenteraservice.service';
 
@@ -17,7 +18,7 @@ export class TablaComponent {
   total!:number;
   cp!:number;
 
-constructor(private tabla: TablaenteraserviceService) { }
+constructor(private tabla: TablaenteraserviceService,private cookieService:CookieService) { }
 ngOnInit() {
   this.tabla.gettable().subscribe(result => {
     for(let i = 0;i < result.length;i++){
@@ -30,5 +31,25 @@ ngOnInit() {
   this.animalfiltrado = this.arranimals
   this.total = 10;
   this.cp=1;
+}
+
+findcookie(){
+  let cookie = this.cookieService.get('USER')
+  if(cookie != ""){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+findcookies(){
+  let cookie = this.cookieService.get('rols')
+  if(cookie == "buyer"){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
 }

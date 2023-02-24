@@ -1,26 +1,3 @@
-<!-- <div class="container">
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Nombre</th>
-                <th>Especie</th>
-                <th>Cantidad</th>
-                <th>Familia</th>
-                <th>Alimentacion</th>
-                <th>Habitat</th>
-            </tr>
-            <tr *ngFor="let animal of arranimals">
-                <td>{{animal.nombre}}</td>
-                <td>{{animal.especie}}</td>
-                <td>{{animal.cantidad}}</td>
-                <td>{{animal.familia}}</td>
-                <td>{{animal.alimentacion}}</td>
-                <td>{{animal.habitat}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div> -->
-
 <div class="container">
     <table class="table">
         <tbody>
@@ -31,6 +8,7 @@
                 <th>Familia</th>
                 <th>Alimentacion</th>
                 <th>Habitat</th>
+                <th *ngIf="findcookie() && findcookies()">Adoptar</th>
             </tr>
             <tr *ngFor="let animal of arranimals | paginate: { itemsPerPage: total, currentPage: cp } ">
                 <td>{{animal.nombre}}</td>
@@ -39,6 +17,7 @@
                 <td>{{animal.familia}}</td>
                 <td>{{animal.alimentacion}}</td>
                 <td>{{animal.habitat}}</td>
+                <td *ngIf="findcookie() && findcookies()"><button type="button" class="btn btn-success">Adopt</button></td>
             </tr>
         </tbody>
     </table>
