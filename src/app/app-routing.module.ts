@@ -44,15 +44,18 @@ const routes: Routes = [
   },
   {
     path: 'newanimal',
-    component:MoreanimalsComponent
+    component:MoreanimalsComponent,
+    canActivate:[NoentryGuard]
   },
   {
     path: 'deleteanimal',
-    component:DeleteanimalComponent
+    component:DeleteanimalComponent,
+    canActivate:[NoentryGuard]
   },
   {
     path: 'updateanimal',
-    component:UpdateanimalComponent
+    component:UpdateanimalComponent,
+    canActivate:[NoentryGuard]
   }
 ];
 

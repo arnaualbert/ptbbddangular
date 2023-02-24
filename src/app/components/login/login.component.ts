@@ -16,7 +16,7 @@ export class LoginComponent {
   datalogin = "";
   message: string ="";
   user!:User;
-
+  cookieValue: string = "";
   constructor(private myloginservice:LoginserviceService,private cookieService:CookieService,private route:Router){
     
   }
@@ -45,12 +45,16 @@ export class LoginComponent {
         }else{
           this.user=JSON.parse(JSON.stringify(result))
           this.cookieService.set('USER',result.username + " " + result.role)
-          this.route.navigate(['/home']);
+          this.cookieValue = this.cookieService.get('USER');
+          this.cookieService.set('rols',result.role)
+          localStorage.setItem('rol',result.role)
+          this.route.navigate(['/tabla']);
           console.log('yes'); 
         }
       }
     )
   }
+
 
   findcookie(){
     let cookie = this.cookieService.get('USER')
@@ -61,4 +65,6 @@ export class LoginComponent {
       return false;
     }
   }
+
+  
 }

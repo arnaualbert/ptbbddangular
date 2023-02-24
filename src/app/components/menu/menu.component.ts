@@ -9,8 +9,21 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class MenuComponent {
 
+  role:any;
+  cookieValue:any;
+  constructor(private cookieService:CookieService,private router:Router){
+    // this.role = localStorage.getItem('role');
+    // console.log(this.role)
+    this.role = localStorage.getItem('rol');
+    console.log(this.role)
+    this.cookieValue = cookieService.get('rols') ;
+    console.log(this.cookieValue)
+  }
 
-  constructor(private cookieService:CookieService,private router:Router){}
+  // ngOnInit() {
+  //   this.role = localStorage.getItem('rol');
+  //   console.log(this.role)
+  // }
 
   findcookie(){
     let cookie = this.cookieService.get('USER')
@@ -25,6 +38,17 @@ export class MenuComponent {
   deleteAll(){
     this.router.navigate(['/login']).then(()=>window.location.reload());
     this.cookieService.deleteAll();
-    // localStorage.removeItem('token')
+    localStorage.clear();
   }
+
+  findcookies(){
+    let cookie = this.cookieService.get('rols')
+    if(cookie == "admin"){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
 }

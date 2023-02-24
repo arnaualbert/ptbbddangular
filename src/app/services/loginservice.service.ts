@@ -40,6 +40,7 @@ export class LoginserviceService {
           console.log(user);
           
           localStorage.setItem('usuari',JSON.stringify(res));
+          localStorage.setItem('role',res.role);
           // console.log("LocalStorage");
           // console.log(localStorage.getItem('usuari'));
 
