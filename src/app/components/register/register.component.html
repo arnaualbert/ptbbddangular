@@ -2,18 +2,78 @@
 <form [formGroup]="formregister" (ngSubmit)="submit()">
     <label>Username</label>
     <input type="text" class="form-control" formControlName="username"><br>
+    <span class="error" *ngIf="this.formregister.get('username')?.errors?.['required'] && this.formregister.get('username')?.touched">
+        Fill the username
+    </span>
+    <span class="error" *ngIf="this.formregister.get('username')?.errors?.['minlength'] && this.formregister.get('username')?.touched">
+        Min length of 2 letters
+    </span>
+    <span class="error" *ngIf="this.formregister.get('username')?.errors?.['maxlength'] && this.formregister.get('username')?.touched">
+        Max length of 25 letters
+    </span><br>
     <label>Password</label>
     <input type="text" class="form-control" formControlName="password"><br>
+    <span class="error" *ngIf="this.formregister.get('password')?.errors?.['required'] && this.formregister.get('password')?.touched">
+        Fill the password
+    </span>
+    <span class="error" *ngIf="this.formregister.get('password')?.errors?.['minlength'] && this.formregister.get('password')?.touched">
+        Min length of 5 letters
+    </span>
+    <span class="error" *ngIf="this.formregister.get('password')?.errors?.['maxlength'] && this.formregister.get('password')?.touched">
+        Max length of 10 letters
+    </span><br>
     <label>Name</label>
     <input type="text" class="form-control" formControlName="name"><br>
+    <span class="error" *ngIf="this.formregister.get('name')?.errors?.['required'] && this.formregister.get('name')?.touched">
+        Fill the name
+    </span>
+    <span class="error" *ngIf="this.formregister.get('name')?.errors?.['minlength'] && this.formregister.get('name')?.touched">
+        Min length of 2 letters
+    </span>
+    <span class="error" *ngIf="this.formregister.get('name')?.errors?.['maxlength'] && this.formregister.get('name')?.touched">
+        Max length of 20 letters
+    </span><br>
     <label>Last Name</label>
     <input type="text" class="form-control" formControlName="lastname"><br>
+    <span class="error" *ngIf="this.formregister.get('lastname')?.errors?.['required'] && this.formregister.get('lastname')?.touched">
+        Fill the lastname
+    </span>
+    <span class="error" *ngIf="this.formregister.get('lastname')?.errors?.['minlength'] && this.formregister.get('lastname')?.touched">
+        Min length of 2 letters
+    </span>
+    <span class="error" *ngIf="this.formregister.get('lastname')?.errors?.['maxlength'] && this.formregister.get('lastname')?.touched">
+        Max length of 20 letters
+    </span><br>
     <label>Mail</label>
     <input type="text" class="form-control" formControlName="mail"><br>
+    <span class="error" *ngIf="this.formregister.get('mail')?.errors?.['required'] && this.formregister.get('mail')?.touched">
+        Fill the mail
+    </span>
+    <span class="error" *ngIf="this.formregister.get('mail')?.errors?.['pattern'] && this.formregister.get('mail')?.touched">
+        Needs to be a valid email address
+    </span>
+    <span class="error" *ngIf="this.formregister.get('mail')?.errors?.['maxlength'] && this.formregister.get('mail')?.touched">
+        Max length of 30 letters
+    </span><br>
     <label>Phone number</label>
-    <input type="text" class="form-control" formControlName="number"><br>
+    <input type="number" class="form-control" formControlName="number"><br>
+    <span class="error" *ngIf="this.formregister.get('number')?.errors?.['required'] && this.formregister.get('number')?.touched">
+        Fill the number
+    </span>
+    <span class="error" *ngIf="this.formregister.get('number')?.errors?.['min'] && this.formregister.get('number')?.touched">
+        Min length of 9 letters
+    </span>
+    <span class="error" *ngIf="this.formregister.get('number')?.errors?.['max'] && this.formregister.get('number')?.touched">
+        Max length of 9 letters
+    </span><br>
     <label>Age</label>
-    <input type="text" class="form-control" formControlName="age"><br>
+    <input type="number" class="form-control" formControlName="age"><br>
+    <span class="error" *ngIf="this.formregister.get('age')?.errors?.['required'] && this.formregister.get('age')?.touched">
+        Fill the age
+    </span>
+    <span class="error" *ngIf="this.formregister.get('age')?.errors?.['max'] && this.formregister.get('age')?.touched">
+        Max 100 years
+    </span><br>
     <br>
     <button type="submit" class="btn" [disabled]="formregister.invalid">Register</button>
 </form>

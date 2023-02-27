@@ -35,22 +35,17 @@ export class LoginserviceService {
       map(res=>{
         console.log(JSON.stringify(res));
         if(res!=null){
-          const user:User=new User(res.username ,res.password);
+          const user:User=new User(res.username ,res.password, res.name, res.lastname, res.role,res.mail,res.number,res.age);
           console.log("Objecte Usuari");
           console.log(user);
-          
           localStorage.setItem('usuari',JSON.stringify(res));
           localStorage.setItem('role',res.role);
           // console.log("LocalStorage");
           // console.log(localStorage.getItem('usuari'));
-
           this.usuariSubject.next(user);
         }
         return res;
-
-
       })
     )
-  
   }
 }

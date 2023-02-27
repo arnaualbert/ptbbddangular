@@ -18,36 +18,43 @@ export class RegisterComponent {
   formregister = new FormGroup({
     username: new FormControl('',[
       Validators.required,
-    //  Validators.minLength(2),
-    //  Validators.maxLength(15)
+      Validators.minLength(2),
+      Validators.maxLength(25)
     ]),
     password: new FormControl('',[
       Validators.required,
-      Validators.minLength(5)
+      Validators.minLength(5),
+      Validators.maxLength(10)
     ]),
     name: new FormControl('',[
       Validators.required,
      Validators.minLength(2),
-     Validators.maxLength(15),
+     Validators.maxLength(20),
      Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')
     ]),
     lastname: new FormControl('',[
       Validators.required,
      Validators.minLength(2),
-     Validators.maxLength(15),
+     Validators.maxLength(20),
      Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')
     ]),
     mail: new FormControl('',[
       Validators.required,
+      Validators.maxLength(30),
       Validators.pattern("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$")
     ]),
     number: new FormControl('',[
-      Validators.required
+      Validators.required,
+      Validators.min(100000000),
+      Validators.max(999999999)
+      // Validators.minLength(9),
+      // Validators.maxLength(9)
     ]),
     age: new FormControl('',[
       Validators.required,
-      Validators.minLength(2),
-      Validators.maxLength(3)
+      // Validators.minLength(2),
+      // Validators.maxLength(3)
+      Validators.max(100)
     ])
   })
 
