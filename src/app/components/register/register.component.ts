@@ -1,3 +1,7 @@
+/**
+ * This component makes the registration of the user always with the role buyer
+ * @authors Arnau Albert and Luis Cardenete
+ */
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
