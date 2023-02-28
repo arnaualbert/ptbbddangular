@@ -22,7 +22,7 @@
                 <td *ngIf="findcookie() && findbuyer()"><button type="button" class="btn btn-success">Adopt</button></td>
                 <!-- <td *ngIf="findcookie() && findadmin()"><button type="button" class="btn btn-danger" onclick="deleteanimal(animal.nombre)">Delete</button></td> -->
                 <td *ngIf="findcookie() && findadmin()"><button type="button" class="btn btn-danger" (click)="deleteanimals(animal.nombre)">Delete</button></td>
-                <td *ngIf="findcookie() && findadmin()"><button type="button" class="btn btn-danger" (click)="updateform(animal.nombre)">Edit</button></td>
+                <td *ngIf="findcookie() && findadmin()"><button type="button" class="btn btn-primary" (click)="updateform(animal.nombre)">Edit</button></td>
             </tr>
         </tbody>
     </table>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Animal } from 'src/app/model/Animal';
 import { TablaenteraserviceService } from 'src/app/services/tablaenteraservice.service';
 import { UpdateanimalserviceService } from 'src/app/services/updateanimalservice.service';
@@ -10,10 +11,11 @@ import { UpdateanimalserviceService } from 'src/app/services/updateanimalservice
   styleUrls: ['./updateanimal.component.css']
 })
 export class UpdateanimalComponent {
-  constructor(private tabla: TablaenteraserviceService, private updateanimal:UpdateanimalserviceService){}
+  constructor(private tabla: TablaenteraserviceService, private updateanimal:UpdateanimalserviceService,private route: ActivatedRoute,
+    private redirectRoute: Router){}
   arrayanimals:Animal[] = [];
   animaltomodifi:Animal = new Animal();
-
+  // animaltomodifi:any = new Animal();
   formupdateanimal = new FormGroup({
     animal_to_update: new FormControl('',[
       Validators.required
@@ -48,9 +50,31 @@ export class UpdateanimalComponent {
         let animal:Animal = new Animal(res['nombre'],res['especie'],res['cantidad'],res['familia'],res['alimentacion'],res['habitat'])
        // console.log(animal)
        this.arrayanimals.push(animal)
+
+       let a = this.route.snapshot.paramMap.get('animalname')
+       console.log(this.arrayanimals)
+       console.log(a)
+       for(let i = 0;i<this.arrayanimals.length;i++){
+         if(a == this.arrayanimals[i].nombre){
+           this.animaltomodifi = this.arrayanimals[i]
+           console.log(this.animaltomodifi)
+         }
+       }
         }
     })
-    console.log(this.arrayanimals)
+    // console.log(this.arrayanimals)
+
+    // let a = this.route.snapshot.paramMap.get('animalname')
+    // console.log(this.arrayanimals)
+    // console.log(a)
+    // for(let i = 0;i<this.arrayanimals.length;i++){
+    //   if(a == this.arrayanimals[i].nombre){
+    //     this.animaltomodifi = this.arrayanimals[i]
+    //     console.log(this.animaltomodifi)
+    //   }
+    // }
+
+    // this.animaltomodifi = this.route.snapshot.paramMap.get('animalname')
   }
 
   submitanimaltoupdate(){

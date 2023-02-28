@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Animal } from 'src/app/model/Animal';
 import { DeleteanimalserviceService } from 'src/app/services/deleteanimalservice.service';
@@ -19,7 +20,7 @@ export class TablaComponent {
   total!:number;
   cp!:number;
 
-constructor(private tabla: TablaenteraserviceService,private cookieService:CookieService,private deleteanimal:DeleteanimalserviceService) { }
+constructor(private tabla: TablaenteraserviceService,private cookieService:CookieService,private deleteanimal:DeleteanimalserviceService,private route: Router) { }
 ngOnInit() {
   this.tabla.gettable().subscribe(result => {
     for(let i = 0;i < result.length;i++){
@@ -89,5 +90,6 @@ deleteanimals(animal:string){
 }
 updateform(animal:string){
   console.log(animal);
+  this.route.navigate(['/updateanimal',{'animalname':animal}]);
 }
 }
