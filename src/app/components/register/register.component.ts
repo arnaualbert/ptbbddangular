@@ -14,11 +14,16 @@ import { RegisterserviceService } from 'src/app/services/registerservice.service
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-
+  // declaration of variables
   message: string ="";
   user!:User;
+  /**
+   * make tha constructor and call the services that we need to register
+   * @param registeringService 
+   * @param route 
+   */
   constructor(private registeringService:RegisterserviceService,private route:Router){}
-
+  // make the formregister FormGroup and the FormControl of each variable
   formregister = new FormGroup({
     username: new FormControl('',[
       Validators.required,
@@ -64,6 +69,9 @@ export class RegisterComponent {
 
   submit(){
     console.log('register')
+    /**
+     * @description call the register service to register a new user with the variales of the form
+     */
     this.registeringService.registerUser(this.formregister.value.username, this.formregister.value.password, this.formregister.value.name, this.formregister.value.lastname,'buyer',this.formregister.value.mail, this.formregister.value.number, this.formregister.value.age).subscribe(
       result => {
         if(result==null){
