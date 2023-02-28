@@ -63,8 +63,8 @@ export class LoginComponent {
           this.user = JSON.parse(JSON.stringify(result))
           this.cookieService.set('USER', result.username + " " + result.role)
           this.cookieValue = this.cookieService.get('USER');
-          this.cookieService.set('rols', result.role)
-          localStorage.setItem('rol', result.role)
+          this.cookieService.set('rols', result.resultats.role)
+          localStorage.setItem('rol', result.resultats.role)
           this.route.navigate(['/tabla']);
           console.log('yes');
         }

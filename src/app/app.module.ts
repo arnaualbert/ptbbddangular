@@ -9,7 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CookieService } from 'ngx-cookie-service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { MotivacioComponent } from './components/motivacio/motivacio.component';
 import { PresentacionComponent } from './components/presentacion/presentacion.component';
@@ -17,6 +17,7 @@ import { TablaComponent } from './components/tabla/tabla.component';
 import { MoreanimalsComponent } from './components/moreanimals/moreanimals.component';
 import { DeleteanimalComponent } from './components/deleteanimal/deleteanimal.component';
 import { UpdateanimalComponent } from './components/updateanimal/updateanimal.component';
+import { InterceptorsService } from './interceptor/interceptors.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { UpdateanimalComponent } from './components/updateanimal/updateanimal.co
     NgxPaginationModule,
     HttpClientModule
   ],
-  providers: [CookieService],
+  providers: [CookieService, { provide: HTTP_INTERCEPTORS, useClass: InterceptorsService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

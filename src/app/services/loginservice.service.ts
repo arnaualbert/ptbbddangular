@@ -32,21 +32,22 @@ export class LoginserviceService {
    * @param password is the password of the user that will be logged in
    * @returns the response from the server
    */
-  validateUsers(username: any, password: any): Observable<User> {
+  validateUsers(username: any, password: any): Observable<any> {
 
     // #username?:string,  password?:string,  name?:string,  lastname?:string, role?:string, mail?:string, number?:number, age?:number
     //let u = new User(username, password,"","","","",0,0);
     //console.log(u);
 
-    return this._http.post<User>(this.url + '/login', { "username": username, "password": password }, { responseType: "json" }).pipe(
+    return this._http.post<any>(this.url + '/login', { "username": username, "password": password }, { responseType: "json" }).pipe(
       map(res => {
         console.log(JSON.stringify(res));
         if (res != null) {
-          const user: User = new User(res.username, res.password, res.name, res.lastname, res.role, res.mail, res.number, res.age);
+          localStorage.setItem('token', res.accessToken);
+          const user: User = new User(res.resultats.username, res.resultats.password, res.resultats.name, res.resultats.lastname, res.resultats.role, res.resultats.mail, res.resultats.number, res.resultats.age);
           console.log("Objecte Usuari");
           console.log(user);
           localStorage.setItem('usuari', JSON.stringify(res));
-          localStorage.setItem('role', res.role);
+          localStorage.setItem('role', res.resultats.role);
           // console.log("LocalStorage");
           // console.log(localStorage.getItem('usuari'));
           this.usuariSubject.next(user);
