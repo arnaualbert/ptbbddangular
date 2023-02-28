@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Animal } from 'src/app/model/Animal';
+import { DeleteanimalserviceService } from 'src/app/services/deleteanimalservice.service';
 import { TablaenteraserviceService } from 'src/app/services/tablaenteraservice.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class TablaComponent {
   total!:number;
   cp!:number;
 
-constructor(private tabla: TablaenteraserviceService,private cookieService:CookieService) { }
+constructor(private tabla: TablaenteraserviceService,private cookieService:CookieService,private deleteanimal:DeleteanimalserviceService) { }
 ngOnInit() {
   this.tabla.gettable().subscribe(result => {
     for(let i = 0;i < result.length;i++){
@@ -72,7 +73,21 @@ findadmin(){
   }
 }
 
-deleteanimal(animal:string){
+deleteanimals(animal:string){
+  console.log(animal);
+  this.deleteanimal.deleteanimal(animal).subscribe(
+    result=>{
+      if(result==null){
+        console.log('no'); 
+      }else{
+        console.log('yes'); 
+        window.location.reload();
+      }
+
+    }
+  )
+}
+updateform(animal:string){
   console.log(animal);
 }
 }
