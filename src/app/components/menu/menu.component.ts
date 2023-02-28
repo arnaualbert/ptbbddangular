@@ -17,17 +17,17 @@ export class MenuComponent {
   /**
    * declare variables
    */
-  role:any;
-  cookieValue:any;
+  role: any;
+  cookieValue: any;
   /**
    * Create constructor
    * @param cookieService 
    * @param router 
    */
-  constructor(private cookieService:CookieService,private router:Router){
+  constructor(private cookieService: CookieService, private router: Router) {
     this.role = localStorage.getItem('rol');
     console.log(this.role)
-    this.cookieValue = cookieService.get('rols') ;
+    this.cookieValue = cookieService.get('rols');
     console.log(this.cookieValue)
   }
 
@@ -35,20 +35,20 @@ export class MenuComponent {
    * find the cookie
    * @returns boolean
    */
-  findcookie(){
+  findcookie() {
     let cookie = this.cookieService.get('USER')
-    if(cookie != ""){
+    if (cookie != "") {
       return true;
     }
-    else{
+    else {
       return false;
     }
   }
   /**
    * delete all localstorage and cookies
    */
-  deleteAll(){
-    this.router.navigate(['/login']).then(()=>window.location.reload());
+  deleteAll() {
+    this.router.navigate(['/login']).then(() => window.location.reload());
     this.cookieService.deleteAll();
     localStorage.clear();
   }
@@ -56,12 +56,12 @@ export class MenuComponent {
    * find if the user that is logged is a admin
    * @returns boolean
    */
-  findadmin(){
+  findadmin() {
     let cookie = this.cookieService.get('rols')
-    if(cookie == "admin"){
+    if (cookie == "admin") {
       return true;
     }
-    else{
+    else {
       return false;
     }
   }
@@ -69,12 +69,12 @@ export class MenuComponent {
    * find if the user that is logged is a buyer
    * @returns boolean
    */
-  findbuyer(){
+  findbuyer() {
     let cookie = this.cookieService.get('rols')
-    if(cookie == "buyer"){
+    if (cookie == "buyer") {
       return true;
     }
-    else{
+    else {
       return false;
     }
   }

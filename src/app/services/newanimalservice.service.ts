@@ -13,12 +13,12 @@ export class NewanimalserviceService {
   /**
    * @description declare the variables
    */
-  url:string= 'http://localhost:3000'
+  url: string = 'http://localhost:3000'
   /**
    * make the constructor with the services needed
    * @param _http 
    */
-  constructor(private _http:HttpClient) { }
+  constructor(private _http: HttpClient) { }
   /**
    * create a new animal and add it to the database
    * @param nombre the name of the new animal
@@ -29,7 +29,7 @@ export class NewanimalserviceService {
    * @param habitat the habitat of the new animal
    * @returns the response of the server
    */
-  addnewanimal(nombre:any,especie:any,cantidad:any,familia:any,alimentacion:any,habitat:any):Observable<Animal> {
-    return this._http.post<Animal>(this.url+'/newanimal',{'nombre':nombre, 'especie':especie, 'cantidad':cantidad, 'familia':familia,'alimentacion':alimentacion, 'habitat':habitat},{responseType:'json'})
+  addnewanimal(nombre: any, especie: any, cantidad: any, familia: any, alimentacion: any, habitat: any): Observable<Animal> {
+    return this._http.post<Animal>(this.url + '/newanimal', { 'nombre': nombre, 'especie': especie, 'cantidad': cantidad, 'familia': familia, 'alimentacion': alimentacion, 'habitat': habitat }, { responseType: 'json' })
   }
 }

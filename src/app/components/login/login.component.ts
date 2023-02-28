@@ -20,8 +20,8 @@ export class LoginComponent {
    * @description delcare the variables
    */
   datalogin = "";
-  message: string ="";
-  user!:User;
+  message: string = "";
+  user!: User;
   cookieValue: string = "";
   /**
    * Call tue service that we need
@@ -29,24 +29,24 @@ export class LoginComponent {
    * @param cookieService 
    * @param route 
    */
-  constructor(private myloginservice:LoginserviceService,private cookieService:CookieService,private route:Router){
-    
+  constructor(private myloginservice: LoginserviceService, private cookieService: CookieService, private route: Router) {
+
   }
   /**
    * @description make the formlogin FormGroup and the FormControl of each variable
    */
   formlogin = new FormGroup({
-    username: new FormControl('',[ 
-    Validators.required
+    username: new FormControl('', [
+      Validators.required
     ]),
-    password: new FormControl('',[
+    password: new FormControl('', [
       Validators.required
     ])
   })
 
 
-  submit(){
-    this.datalogin =`
+  submit() {
+    this.datalogin = `
     ${this.formlogin.value.username}
     ${this.formlogin.value.password}
     `
@@ -54,34 +54,34 @@ export class LoginComponent {
     /**
      * @description get the variables from the form and send them to the service that make the login process
      */
-    this.myloginservice.validateUsers(this.formlogin.value.username,this.formlogin.value.password).subscribe(
+    this.myloginservice.validateUsers(this.formlogin.value.username, this.formlogin.value.password).subscribe(
       result => {
-        if(result==null){
-          this.message='credenciales invalidas';
-          console.log('no'); 
-        }else{
-          this.user=JSON.parse(JSON.stringify(result))
-          this.cookieService.set('USER',result.username + " " + result.role)
+        if (result == null) {
+          this.message = 'credenciales invalidas';
+          console.log('no');
+        } else {
+          this.user = JSON.parse(JSON.stringify(result))
+          this.cookieService.set('USER', result.username + " " + result.role)
           this.cookieValue = this.cookieService.get('USER');
-          this.cookieService.set('rols',result.role)
-          localStorage.setItem('rol',result.role)
+          this.cookieService.set('rols', result.role)
+          localStorage.setItem('rol', result.role)
           this.route.navigate(['/tabla']);
-          console.log('yes'); 
+          console.log('yes');
         }
       }
     )
   }
 
 
-  findcookie(){
+  findcookie() {
     let cookie = this.cookieService.get('USER')
-    if(cookie != ""){
+    if (cookie != "") {
       return true;
     }
-    else{
+    else {
       return false;
     }
   }
 
-  
+
 }

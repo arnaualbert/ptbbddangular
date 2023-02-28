@@ -18,7 +18,7 @@ export class MoreanimalsComponent {
    * calls the service to add a new animal
    * @param newanimal 
    */
-  constructor(private newanimal:NewanimalserviceService){}
+  constructor(private newanimal: NewanimalserviceService) { }
   /**
    * make the formaddanimal 
    */
@@ -43,13 +43,13 @@ export class MoreanimalsComponent {
     ])
   })
 
-  submit(){
+  submit() {
     // add a new animal to the database
     this.newanimal.addnewanimal(this.formaddanimal.value.nombre, this.formaddanimal.value.especie, this.formaddanimal.value.cantidad, this.formaddanimal.value.familia, this.formaddanimal.value.alimentacion, this.formaddanimal.value.habitat).subscribe(
       result => {
-        if(result==null) {
+        if (result == null) {
           console.log('error');
-        }else{
+        } else {
           console.log('added successfully');
         }
       }

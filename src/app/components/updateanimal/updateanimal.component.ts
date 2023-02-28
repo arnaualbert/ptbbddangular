@@ -22,17 +22,17 @@ export class UpdateanimalComponent {
    * @param route 
    * @param redirectRoute 
    */
-  constructor(private tabla: TablaenteraserviceService, private updateanimal:UpdateanimalserviceService,private route: ActivatedRoute,
-    private redirectRoute: Router){}
-    /**
-     * Declaration of variables
-     */
-  arrayanimals:Animal[] = [];
-  animaltomodifi:Animal = new Animal();
+  constructor(private tabla: TablaenteraserviceService, private updateanimal: UpdateanimalserviceService, private route: ActivatedRoute,
+    private redirectRoute: Router) { }
+  /**
+   * Declaration of variables
+   */
+  arrayanimals: Animal[] = [];
+  animaltomodifi: Animal = new Animal();
 
 
   formupdateanimal = new FormGroup({
-    animal_to_update: new FormControl('',[
+    animal_to_update: new FormControl('', [
       Validators.required
     ])
   })
@@ -59,28 +59,28 @@ export class UpdateanimalComponent {
       Validators.required
     ])
   })
-  
+
   ngOnInit() {
     /**
      * Get the whole array of animals 
      */
     this.tabla.gettable().subscribe(result => {
-      for(let i = 0;i < result.length;i++){
+      for (let i = 0; i < result.length; i++) {
         let res = result[i]
-        let animal:Animal = new Animal(res['nombre'],res['especie'],res['cantidad'],res['familia'],res['alimentacion'],res['habitat'])
-       this.arrayanimals.push(animal)
+        let animal: Animal = new Animal(res['nombre'], res['especie'], res['cantidad'], res['familia'], res['alimentacion'], res['habitat'])
+        this.arrayanimals.push(animal)
         // get the animal name from the route that comes from the table
-       let a = this.route.snapshot.paramMap.get('animalname')
-       console.log(this.arrayanimals)
-       console.log(a)
-       // compares if the name of the animal matches the animal in the array and give a value to the variable animaltomodifi with all the info about the animal
-       for(let i = 0;i<this.arrayanimals.length;i++){
-         if(a == this.arrayanimals[i].nombre){
-           this.animaltomodifi = this.arrayanimals[i]
-           console.log(this.animaltomodifi)
-         }
-       }
+        let a = this.route.snapshot.paramMap.get('animalname')
+        console.log(this.arrayanimals)
+        console.log(a)
+        // compares if the name of the animal matches the animal in the array and give a value to the variable animaltomodifi with all the info about the animal
+        for (let i = 0; i < this.arrayanimals.length; i++) {
+          if (a == this.arrayanimals[i].nombre) {
+            this.animaltomodifi = this.arrayanimals[i]
+            console.log(this.animaltomodifi)
+          }
         }
+      }
     })
     // console.log(this.arrayanimals)
 
@@ -97,11 +97,11 @@ export class UpdateanimalComponent {
     // this.animaltomodifi = this.route.snapshot.paramMap.get('animalname')
   }
 
-  submitanimaltoupdate(){
+  submitanimaltoupdate() {
     let animal = this.formupdateanimal.value.animal_to_update
     let a = animal
-    for(let i = 0;i<this.arrayanimals.length;i++){
-      if(a == this.arrayanimals[i].nombre){
+    for (let i = 0; i < this.arrayanimals.length; i++) {
+      if (a == this.arrayanimals[i].nombre) {
         this.animaltomodifi = this.arrayanimals[i]
       }
     }
@@ -110,19 +110,19 @@ export class UpdateanimalComponent {
   /**
    * update the animal
    */
-  submitupdateanimal(){
+  submitupdateanimal() {
     console.log('click')
     // call the service to update the animal and make the update
-    this.updateanimal.updateanimal(this.formaseeanimal.value.especie,this.formaseeanimal.value.cantidad,this.formaseeanimal.value.familia,this.formaseeanimal.value.alimentacion,this.formaseeanimal.value.habitat,this.animaltomodifi.nombre).subscribe(
+    this.updateanimal.updateanimal(this.formaseeanimal.value.especie, this.formaseeanimal.value.cantidad, this.formaseeanimal.value.familia, this.formaseeanimal.value.alimentacion, this.formaseeanimal.value.habitat, this.animaltomodifi.nombre).subscribe(
       result => {
-        if(result==null){
+        if (result == null) {
           console.log('n0oooo')
-        }else{
+        } else {
           console.log(result)
           console.log('update')
         }
       }
     )
   }
-  
+
 }

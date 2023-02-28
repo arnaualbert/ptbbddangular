@@ -15,51 +15,51 @@ import { RegisterserviceService } from 'src/app/services/registerservice.service
 })
 export class RegisterComponent {
   // declaration of variables
-  message: string ="";
-  user!:User;
+  message: string = "";
+  user!: User;
   /**
    * make tha constructor and call the services that we need to register
    * @param registeringService 
    * @param route 
    */
-  constructor(private registeringService:RegisterserviceService,private route:Router){}
+  constructor(private registeringService: RegisterserviceService, private route: Router) { }
   // make the formregister FormGroup and the FormControl of each variable
   formregister = new FormGroup({
-    username: new FormControl('',[
+    username: new FormControl('', [
       Validators.required,
       Validators.minLength(2),
       Validators.maxLength(25)
     ]),
-    password: new FormControl('',[
+    password: new FormControl('', [
       Validators.required,
       Validators.minLength(5),
       Validators.maxLength(10)
     ]),
-    name: new FormControl('',[
+    name: new FormControl('', [
       Validators.required,
-     Validators.minLength(2),
-     Validators.maxLength(20),
-     Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')
+      Validators.minLength(2),
+      Validators.maxLength(20),
+      Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')
     ]),
-    lastname: new FormControl('',[
+    lastname: new FormControl('', [
       Validators.required,
-     Validators.minLength(2),
-     Validators.maxLength(20),
-     Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')
+      Validators.minLength(2),
+      Validators.maxLength(20),
+      Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')
     ]),
-    mail: new FormControl('',[
+    mail: new FormControl('', [
       Validators.required,
       Validators.maxLength(30),
       Validators.pattern("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$")
     ]),
-    number: new FormControl('',[
+    number: new FormControl('', [
       Validators.required,
       Validators.min(100000000),
       Validators.max(999999999)
       // Validators.minLength(9),
       // Validators.maxLength(9)
     ]),
-    age: new FormControl('',[
+    age: new FormControl('', [
       Validators.required,
       // Validators.minLength(2),
       // Validators.maxLength(3)
@@ -67,20 +67,20 @@ export class RegisterComponent {
     ])
   })
 
-  submit(){
+  submit() {
     console.log('register')
     /**
      * @description call the register service to register a new user with the variales of the form
      */
-    this.registeringService.registerUser(this.formregister.value.username, this.formregister.value.password, this.formregister.value.name, this.formregister.value.lastname,'buyer',this.formregister.value.mail, this.formregister.value.number, this.formregister.value.age).subscribe(
+    this.registeringService.registerUser(this.formregister.value.username, this.formregister.value.password, this.formregister.value.name, this.formregister.value.lastname, 'buyer', this.formregister.value.mail, this.formregister.value.number, this.formregister.value.age).subscribe(
       result => {
-        if(result==null){
-          this.message='credenciales invalidas';
-          console.log('no'); 
-        }else{
-          this.user=JSON.parse(JSON.stringify(result))
+        if (result == null) {
+          this.message = 'credenciales invalidas';
+          console.log('no');
+        } else {
+          this.user = JSON.parse(JSON.stringify(result))
           this.route.navigate(['/home']);
-          console.log('yes'); 
+          console.log('yes');
         }
       }
     )

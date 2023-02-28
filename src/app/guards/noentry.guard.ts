@@ -12,18 +12,18 @@ export class NoentryGuard implements CanActivate {
   //   state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
   //   return true;
   // }
-  constructor(private route:Router,private _http:LoginserviceService){}
+  constructor(private route: Router, private _http: LoginserviceService) { }
   canActivate(route: ActivatedRouteSnapshot) {
-    const usuario=this._http.usuaridata();
+    const usuario = this._http.usuaridata();
     //console.log("erererer",usuario);
-    if(usuario!=null){
+    if (usuario != null) {
 
       return true;
-    } 
-      this.route.navigate(['/login']);
-      return false;
+    }
+    this.route.navigate(['/login']);
+    return false;
   }
 
 
-  
+
 }
