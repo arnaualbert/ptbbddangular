@@ -7,24 +7,31 @@ import { User } from '../model/User';
   providedIn: 'root'
 })
 export class LoginserviceService {
-
+  /**
+   * @description declaration of variables
+   */
   url:string='http://localhost:3000';
-
-  //nuevo
   private usuariSubject: BehaviorSubject<User>;
   public usuario:Observable<User>;
   
   public usuaridata(){
     return this.usuariSubject.value;
   }
-  ///
-  
-
+  /**
+   * make the controller with tue services needed
+   * @param _http 
+   */
   constructor(private _http:HttpClient) {
     this.usuariSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('usuari')!))
     this.usuario=this.usuariSubject.asObservable();
    }
 
+  /**
+   * makes the login
+   * @param username is the username of the user that will be logged in
+   * @param password is the password of the user that will be logged in
+   * @returns the response from the server
+   */
   validateUsers(username: any, password: any):Observable<User> {
     
     // #username?:string,  password?:string,  name?:string,  lastname?:string, role?:string, mail?:string, number?:number, age?:number
