@@ -11,12 +11,12 @@ export class RegisterserviceService {
   /**
    * @description declaration of variables
    */
-  url:string='http://localhost:3000';
+  url: string = 'http://localhost:3000';
   /**
    * make the constructor
    * @param _http 
    */
-  constructor(private _http:HttpClient) { }
+  constructor(private _http: HttpClient) { }
   /**
    * register a new user to the database
    * @param username the username to register in the database
@@ -29,8 +29,8 @@ export class RegisterserviceService {
    * @param age the age of the user to register in the database
    * @returns the response of the server
    */
-  registerUser(username:any, password:any,name:any,lastname:any,role:any,mail:any,number:any,age:any):Observable<User>{
+  registerUser(username: any, password: any, name: any, lastname: any, role: any, mail: any, number: any, age: any): Observable<User> {
 
-    return this._http.post<User>(this.url+'/register',{'username':username, 'password':password, 'name':name, 'lastname':lastname,'role':role ,'mail':mail, 'number':number,'age':age},{responseType:'json'})
+    return this._http.post<User>(this.url + '/register', { 'username': username, 'password': password, 'name': name, 'lastname': lastname, 'role': role, 'mail': mail, 'number': number, 'age': age }, { responseType: 'json' })
   }
 }

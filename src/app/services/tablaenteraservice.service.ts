@@ -7,15 +7,24 @@ import { Animal } from '../model/Animal';
 })
 export class TablaenteraserviceService {
 
+  /**
+   * @description declaration of variables
+   */
+  url: string = 'http://localhost:3000';
+  /**
+ * make the constructor
+ * @param _http 
+ */
+  constructor(private _http: HttpClient) { }
+  /**
+   * get the table from the database
+   * @returns the respone of the server
+   */
+  gettable(): Observable<Animal[]> {
 
-  url:string='http://localhost:3000';
-  constructor(private _http:HttpClient) { }
-
-  gettable():Observable<Animal[]>{
-
-    return   this._http.get<Animal[]>(this.url+'/tabla').pipe(
+    return this._http.get<Animal[]>(this.url + '/tabla').pipe(
       map(result => {
-          return result;
+        return result;
       })
     )
   }
