@@ -43,7 +43,16 @@ findcookie(){
   }
 }
 
-findcookies(){
+// findcookies(){
+//   let cookie = this.cookieService.get('rols')
+//   if(cookie == "buyer"){
+//     return true;
+//   }
+//   else{
+//     return false;
+//   }
+// }
+findbuyer(){
   let cookie = this.cookieService.get('rols')
   if(cookie == "buyer"){
     return true;
@@ -51,5 +60,19 @@ findcookies(){
   else{
     return false;
   }
+}
+
+findadmin(){
+  let cookie = this.cookieService.get('rols')
+  if(cookie == "admin"){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+deleteanimal(animal:string){
+  console.log(animal);
 }
 }

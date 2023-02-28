@@ -8,7 +8,8 @@
                 <th>Familia</th>
                 <th>Alimentacion</th>
                 <th>Habitat</th>
-                <th *ngIf="findcookie() && findcookies()">Adoptar</th>
+                <th *ngIf="findcookie() && findbuyer()">Adoptar</th>
+                <th *ngIf="findcookie() && findadmin()">Borrar</th>
             </tr>
             <tr *ngFor="let animal of arranimals | paginate: { itemsPerPage: total, currentPage: cp } ">
                 <td>{{animal.nombre}}</td>
@@ -17,7 +18,9 @@
                 <td>{{animal.familia}}</td>
                 <td>{{animal.alimentacion}}</td>
                 <td>{{animal.habitat}}</td>
-                <td *ngIf="findcookie() && findcookies()"><button type="button" class="btn btn-success">Adopt</button></td>
+                <td *ngIf="findcookie() && findbuyer()"><button type="button" class="btn btn-success">Adopt</button></td>
+                <!-- <td *ngIf="findcookie() && findadmin()"><button type="button" class="btn btn-danger" onclick="deleteanimal(animal.nombre)">Delete</button></td> -->
+                <td *ngIf="findcookie() && findadmin()"><button type="button" class="btn btn-danger" (click)="deleteanimal(animal.nombre)">Delete</button></td>
             </tr>
         </tbody>
     </table>
